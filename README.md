@@ -23,22 +23,22 @@ You need **Node.js** installed on your system.
 
 ### Steps
 
-1.  **Clone or Download:** Get the project files onto your local machine.
-2.  **Install Dependencies:** Navigate to the project folder in your terminal and run:
+1.  **Clone or Download:** Get the project files onto your local machine.
+2.  **Install Dependencies:** Navigate to the project folder in your terminal and run:
 
-    ```bash
-    npm install
-    ```
+    ```bash
+    npm install
+    ```
 
-3.  **Start the Server:** Launch the Node.js Express server:
+3.  **Start the Server:** Launch the Node.js Express server:
 
-    ```bash
-    npm start
-    ```
+    ```bash
+    npm start
+    ```
 
-    The terminal will show the running address: `ZXP Signer backend running at http://localhost:3050`.
+    The terminal will show the running address: `ZXP Signer backend running at http://localhost:3050`.
 
-4.  **Access the Tool:** Open your web browser and navigate to `http://localhost:3050`.
+4.  **Access the Tool:** Open your web browser and navigate to `http://localhost:3050`.
 
 ---
 
@@ -59,10 +59,10 @@ You need **Node.js** installed on your system.
 
 ### The Build Process
 
-1.  Fill out all required fields.
-2.  Check **Compile to JSXBIN** if you want to obfuscate your code.
-3.  Click **Create Cert & Sign**.
-4.  Monitor the **Log Messages** box for real-time output.
+1.  Fill out all required fields.
+2.  Check **Compile to JSXBIN** if you want to obfuscate your code.
+3.  Click **Create Cert & Sign**.
+4.  Monitor the **Log Messages** box for real-time output.
 
 ---
 
@@ -75,3 +75,27 @@ For Adobe Creative Cloud extensions, protecting your core ExtendScript logic is 
 * The temporary `manifest.xml` is **updated** to point to the new, binary `.jsxbin` file before the ZXP package is created.
 
 This process ensures that your final ZXP file contains the compiled, obfuscated `.jsxbin` code, providing a strong layer of protection for your intellectual property without modifying your source project.
+
+---
+
+## 🛣️ Future Roadmap & Development Plans 💡
+
+We are continually enhancing the ZXP Signer Tool to support more complex build workflows and integrate with modern development platforms, facilitating its role in **video automation platforms** and CI/CD pipelines.
+
+### 1. Integration & Automation Focus (API/CLI)
+
+* **REST API Endpoints:** Develop secure, dedicated endpoints to trigger the full build/sign/obfuscate workflow programmatically. This is essential for integrating the ZXP creation step into **Continuous Integration/Continuous Deployment (CI/CD) pipelines** or custom web platforms.
+* **Command-Line Interface (CLI):** Introduce a fully featured CLI mode to allow developers to execute all functions (signing, cert creation, JSXBIN) from a terminal without relying on the web interface.
+* **Adobe Exchange Submission Hook:** Investigate adding a final step to automatically validate and push the signed ZXP file to the Adobe Exchange Partner API upon successful build.
+
+### 2. ExtendScript Obfuscation Enhancements
+
+* **Manifest.xml Path Validation:** Implement better front-end checks to ensure the `ScriptPath` referenced in `manifest.xml` actually exists before starting the build.
+* **Source Map Generation for Debugging:** Explore methods to generate obfuscation source maps (if technically feasible/compatible) for a development/debug build to allow for local error tracking without revealing production code.
+* **JavaScript Engine (CEP/UXP) Modernization:** As Adobe transitions panels to UXP/modern JavaScript, explore support for modern JS bundling (e.g., Webpack/Rollup) within the packaging process, rather than relying solely on legacy JSX/JSXBIN.
+
+### 3. User Experience & Reliability
+
+* **Persistent Certificate Management:** Implement a more robust system for saving and managing multiple certificate profiles locally (separate from browser local storage), which would be password-protected on disk.
+* **Detailed Build Logs:** Improve log granularity, including timestamping for each major step (Copy, JSXBIN, Cert Creation, Sign, Verify) to assist in troubleshooting build failures.
+* **Cross-Platform UI Testing:** Ensure the Node/Express web UI remains fully responsive and functional across major operating systems (Windows, macOS).
