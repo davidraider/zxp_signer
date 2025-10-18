@@ -1,0 +1,9 @@
+# Certificate file
+*.p12
+# Temporary ZXP output
+*.zxp
+# Node dependencies folder
+node_modules/
+# Log files or temporary build artifacts (adjust as needed)
+/logs/
+/tmp/
